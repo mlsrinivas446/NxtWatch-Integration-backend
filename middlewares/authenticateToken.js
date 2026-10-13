@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const AuthenticateToken = (req, res, next) => {
     try {
         const jwtToken = req.headers['authorization']?.split(' ')[1];
-        console.log(jwtToken);
 
         if (!jwtToken) {
         return res.status(401).send('Token Not Found');
@@ -18,7 +17,6 @@ const AuthenticateToken = (req, res, next) => {
         }
         });
     } catch (err) {
-        console.log(err);
         return res.status(500).send("Invalid Access Token");
     }
 };
